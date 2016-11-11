@@ -1,0 +1,5 @@
+<div>
+  <% @attachments.each do |attachment| %>
+    <%= image_tag attachment.image.url(:thumb) %>
+  <% end %>
+</div>

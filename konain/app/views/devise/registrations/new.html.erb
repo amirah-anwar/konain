@@ -1,0 +1,109 @@
+<div class="container buildingImg">
+  <div class="row-fluid">
+    <div class="span12">
+      <div class="loginpage-cont signupPage">
+        <div class="loginpage-inner ">
+          <h1>Become a free member</h1>
+
+          <div class="otherLoginLinks">
+            <div class="leftSide">
+              <%= link_to user_facebook_omniauth_authorize_path, class: 'facebookBtn' do %>
+                <span class="fa fa-facebook"></span>Login with Facebook
+              <% end %>
+            </div>
+            <div class="rightSide">
+              <span>Already a member?</span>
+              <%= link_to 'Login', new_user_session_path, class: 'btnPrimary' %>
+            </div>
+            <div class="clearall"></div>
+          </div>
+
+          <%= render 'devise/shared/links' %>
+
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <% if resource.errors.any? %>
+
+              <div class="alert alert-error alert-block">
+                <button type="button" class="close" data-dismiss="alert">x</button>
+                <ul>
+                  <% resource.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+            <div class="form-horizontal span10 wrapper-center">
+              <div class="control-group paddingForAlerts">
+                <%= f.label :email, 'Email:', class: 'control-label' %>
+                <div class="controls">
+                  <%= f.email_field :email, required: true, placeholder: 'user@example.com' %>
+                </div>
+              </div>
+
+              <div class='control-group'>
+                <%= f.label :password, 'Password:', class: 'control-label' %>
+                 <div class="controls">
+                    <%= f.password_field :password, autocomplete: 'off', required: true %>
+                    <% if @minimum_password_length %>
+                      <em>(<%= @minimum_password_length %> characters minimum)</em>
+                    <% end %>
+                </div>
+              </div>
+
+              <div class='control-group'>
+                <%= f.label :password_confirmation, 'Password (Confirm):', class: 'control-label' %>
+                <div class="controls">
+                  <%= f.password_field :password_confirmation, autocomplete: 'off', required: true %>
+                </div>
+              </div>
+
+              <div class='control-group'>
+                <%= f.label :name, 'Name:', class: 'control-label' %>
+                <div class="controls">
+                  <%= f.text_field :name, required: true %>
+                </div>
+              </div>
+
+            <div class='control-group'>
+              <%= f.label :home_phone, 'Phone:', class: 'control-label' %>
+              <div class="controls contactInputs">
+                <%= f.text_field :home_phone_code, maxlength: 4, required: true, placeholder: '042', pattern: '(0\d{2,3})' %>
+                <span>-</span>
+                <%= f.text_field :home_phone_number, maxlength: 8, required: true, placeholder: '11111111', pattern: '(\d{8})' %>
+              </div>
+            </div>
+
+            <div class='control-group'>
+              <%= f.label :mobile_phone, 'Cell/Mobile:', class: 'control-label' %>
+              <div class="controls contactInputs">
+                <%= f.text_field :mobile_phone_code, maxlength: 4, required: true, placeholder: '0300', pattern: '(03\d{2})' %>
+                <span>-</span>
+                <%= f.text_field :mobile_phone_number, maxlength: 7, required: true, placeholder: '1111111', pattern: '(\d{7})' %>
+              </div>
+            </div>
+
+            <div class="captchaSec controls control-group">
+              <%= recaptcha_tags %>
+            </div>
+            <div class="controls control-group mt10">
+              <%= f.check_box :terms_and_conditions, required: true, checked: true %>
+              <label class="termsTxt" for="user_terms_and_conditions"> <span></span><%= terms_and_conditions %></label>
+            </div>
+
+            <div class="controls control-group">
+              <%= f.check_box :subscriber, checked: true %>
+              <label class="termsTxt" for="user_subscriber"> <span></span>I want to receive notifications for promotions, newsletters and website updates</label>
+            </div>
+
+            <div class='actions'>
+              <%= f.submit 'Register', class: 'btnPrimary pull-right' %>
+              <div class="clearall"></div>
+            </div>
+
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

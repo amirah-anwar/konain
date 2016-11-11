@@ -1,0 +1,11 @@
+<div class="span3">
+  <%= label_tag 'Property Features:', nil, class: 'top-padding' %>
+</div>
+<div class="span9">
+  <% features.each do |feature| %>
+    <div class="span3">
+      <%= content_tag(:input, nil, type: "checkbox", name: "property[property_features][]", id: "property_features_#{feature}", value: "#{feature}", checked: check_property_features?(feature, params)) %>
+      <label for="property_features_<%= feature %>"><span></span><%= feature %></label>
+    </div>
+  <% end %>
+</div>

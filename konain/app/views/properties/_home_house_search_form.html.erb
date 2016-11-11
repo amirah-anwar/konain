@@ -1,0 +1,56 @@
+<div class="search-form-v1">
+  <span class="search-or"></span>
+  <p class="search-info"></p>
+
+  <%= form_tag properties_path, class: "advance-search-form-v1 clearfix form-inline", method: 'get' do %>
+    <div class="option-bar location">
+      <span class="selectwrap">
+        <%= select_tag :project_id, options_for_select(selected_projects_list(params[:city]), params[:project_id]), prompt: "Society", class: "search-select", id: "side_bar_prop_id" %>
+      </span>
+    </div>
+    <div class='option-bar single-field-width'>
+      <span class='selectwrap'>
+        <%= select_tag :sub_project_id, options_for_select(@sub_projects, params[:sub_project_id]), prompt: 'Phase', class: 'search-select', id: 'side_bar_prop_phase_id' %>
+      </span>
+    </div>
+    <div class="option-bar single-field-width">
+      <span class="selectwrap city-options">
+        <%= select_tag :city, options_for_select(Property::CITIES, params[:city]), prompt: "City", class: "search-select" %>
+      </span>
+    </div>
+    <div class='option-bar type'>
+      <span class="selectwrap">
+        <%= select_tag :category, options_for_select(Property::CATEGORY, params[:category]), prompt: 'Rent or Sale', class: 'search-select' %>
+      </span>
+    </div>
+    <div class='option-bar type'>
+      <%= number_field_tag :property_id, params[:property_id], placeholder: 'Property ID', min: 1 %>
+    </div>
+    <div class='option-bar type'>
+      <%= number_field_tag :land_area, params[:land_area], min: Property::MINIMUM_RANGE, max: Property::MAXIMUM_RANGE, step: 'any', placeholder: "Size" %>
+    </div>
+    <div class='option-bar type'>
+      <span class="selectwrap">
+        <%= select_tag :area_unit, options_for_select(Property::UNITS, params[:area_unit]), prompt: "Unit", class: "search-select" %>
+      </span>
+    </div>
+    <div class="option-bar type">
+      <%= number_field_tag :bedroom_count, params[:bedroom_count], min: Property::MINIMUM_RANGE, max: Property::MAXIMUM_RANGE, step: 'any', placeholder: "Bedroom(s)" %>
+    </div>
+    <div class="option-bar type">
+      <%= number_field_tag :bathroom_count, params[:bathroom_count], min: Property::MINIMUM_RANGE, max: Property::MAXIMUM_RANGE, step: 'any', placeholder: "Bathroom(s)" %>
+    </div>
+    <div class="option-bar type">
+      <%= number_field_tag :min_price, params[:min_price], min: Property::MINIMUM_RANGE, max: Property::MAXIMUM_PRICE_RANGE, step: 'any', placeholder: "Min. Price(Rs.)" %>
+    </div>
+    <div class="option-bar type">
+      <%= number_field_tag :max_price, params[:max_price], min: Property::MINIMUM_RANGE, max: Property::MAXIMUM_PRICE_RANGE, step: 'any', placeholder: "Max. Price(Rs.)" %>
+    </div>
+    <div>
+      <%= hidden_field_tag :property_type, "House" %>
+    </div>
+    <div class="option-submit">
+      <%= submit_tag "Search", class: "button button-search-widget" %>
+    </div>
+  <% end %>
+</div>

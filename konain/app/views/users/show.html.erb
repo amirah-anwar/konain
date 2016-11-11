@@ -1,0 +1,32 @@
+<%= render "shared/banner", banner_heading: "Dashboard", banner_name: "User Profile", heading_tag: :h2 %>
+
+<div class="container">
+
+  <div id="main" class="row-fluid">
+    <section  id="content" class="span9" role="main">
+      <%= render 'user_info', user: @user %>
+
+      <div id="listings-div">
+        <%= render "show", user_properties: @user_properties %>
+      </div>
+    </section>
+
+    <section id="sidebar" class="span3" role="complementary">
+      <%= render 'properties/search_form', user: @user %>
+    </section>
+    <% if @properties.present? %>
+      <section id="sidebar" class="span3" role="complementary">
+        <%= render 'properties/featured_properties', properties: @properties %>
+      </section>
+    <% end %>
+  </div>
+</div>
+
+<% content_for :map_initializer do %>
+  <script type='text/javascript' src='http://maps.google.com/maps/api/js?sensor=false'></script>
+<% end %>
+
+<% content_for :js_init do %>
+  var data = <%= raw @array_of_property_fields.as_json %>;
+  ModalMap.init(data);
+<% end %>

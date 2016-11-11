@@ -1,0 +1,5 @@
+<% if @sub_types.nil? %>
+  $("#property-sub-type").html("");
+<% else %>
+  $("#property-sub-type").html("<%= raw escape_javascript render(partial: 'property_sub_type', locals: { sub_types: @sub_types }) %>");
+<% end %>

@@ -1,0 +1,103 @@
+<%= render "show_filters", params: params %>
+
+<% if user_properties.present? %>
+  <% user_properties.each do |property| %>
+
+    <div class="row-fluid">
+      <div class="row-fluid property-listing <%= catergory_class(property) %> clearfix property-listing-col-margins all-property-list">
+        <div class="listing-image span5">
+          <div class="property-image-container">
+            <%= link_to image_tag(property.cover_image), property %>
+          </div>
+          <div class="listing-meta">
+            <ul>
+              <li>
+                <i class="ico-size"></i>
+                <%= property.land_area %>
+                <%= area_units_abbreviation(property.area_unit) %>
+              </li>
+              <li>
+                <i class="ico-bedroom"></i>
+                <%= property.bedroom_count %>
+              </li>
+              <li>
+                <i class="ico-bathroom"></i>
+                <%= property.bathroom_count %>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="listing-info span7 usersList">
+          <div class="listing-title">
+            <h3><%= link_to property.title_slug, property %></h3>
+          </div>
+          <div class="listing-content">
+            <div class="listing-property-price">
+              <span class="price-curr">PKR. <%= render_price(property.price) %> </span>
+              <span class="price-postfix"></span>
+            </div>
+            <div class="listing-excerpt">
+              <p><%= property.description %></p>
+            </div>
+          </div>
+
+          <div class="listing-address">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <%= project(property).location %>, <%= property.city %>
+            <a href="#" data-toggle="modal" data-target="#myMapModal-<%= property.id %>" class="map-link">View Map</a>
+            <div class="modal fade hide" id="myMapModal-<%= property.id %>">
+              <div class="modal-dialog">
+                <div class="modal-content sendMailAgentPopup">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                      <i class="fa fa-times-circle" aria-hidden="true"></i>
+                    </button>
+                    <h3 class="modal-title"><%= property_address(property) %></h3>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row map-row">
+                      <div id="map-canvas-<%= property.id %>" class="map-canvas"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <% if user_signed_in? && is_owner?(property) %>
+            <div class="edit-delete-btns">
+              <%= link_to edit_property_path(property) do %>
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              <% end %> |
+              <%= link_to property, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+              <% end %>
+            </div>
+          <% end %>
+          <% if @favourited.present? %>
+            <div id='favourited_<%= property.id %>' class='favourite-feature'>
+              <%= render 'favourite_properties/favourited', property: property, user_favourited_active: true, active_category: active_category %>
+             </div>
+          <% end %>
+        </div>
+
+        <div class="property-status <%= catergory_text_class(property) %>">
+          <%= category(property) %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+<% else %>
+
+  <div class="row-fluid">
+    <h2>No Properties found</h2>
+  </div>
+<% end %>
+
+<div class="property-pagination">
+  <ul>
+    <li><%= paginate user_properties, remote: true %></li>
+  </ul>
+</div>

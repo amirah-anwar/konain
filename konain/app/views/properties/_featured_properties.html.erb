@@ -1,0 +1,49 @@
+<aside id="property-search-widget-2" class="widget widget-property-search featuredListingBlock">
+  <h3 class="widget-title">Featured Listings</h3>
+  <% properties.each do |property| %>
+    <div class="content-widget">
+      <article class="property-item">
+        <div class="property-images <%= catergory_class(property) %>">
+          <%= link_to image_tag(property.featured_image), property %>
+          <div class="property-status <%= catergory_text_class(property) %>"><%= category(property) %></div>
+        </div>
+
+        <div class="property-attribute">
+          <h3 class="featuredPropTitle">
+            <%= link_to property.title_slug, property %>
+          </h3>
+          <span class="attribute-city">
+            <%= property.city %>
+          </span>
+          <div class="featuredProPriceSec">
+            <span class="featuredPricCont">
+              <small class="price-curr">PKR.</small>
+              <%= render_price(property.price) %>
+            </span>
+          </div>
+        </div>
+
+        <!-- <div class="property-meta clearfix">
+          <div class="meta-size meta-block">
+            <i class="ico-size"></i>
+            <span class="meta-text">
+              <%= property.land_area %> <%= area_units_abbreviation(property.area_unit) %>
+            </span>
+          </div>
+          <div class="meta-bedroom meta-block">
+            <i class="ico-bedroom"></i>
+            <span class="meta-text">
+              <%= property.bedroom_count %>
+            </span>
+          </div>
+          <div class="meta-bathroom meta-block">
+            <i class="ico-bathroom"></i>
+            <span class="meta-text">
+              <%= property.bathroom_count %>
+            </span>
+          </div>
+        </div> -->
+      </article>
+    </div>
+  <% end %>
+</aside>

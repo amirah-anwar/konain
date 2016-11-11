@@ -1,0 +1,36 @@
+<div id="property_info">
+  <div class="container jcarousel-wrapper">
+    <div id="recent-title-listing" class="container home-page-project-slider">
+      <h2 class="recent-property-list-title">Projects</h2>
+
+      <div class="recent-property-list-by">
+        <div class="jcarousel-control">
+          <div class="jcarousel-control">
+            <a href="#" class="jcarousel-control-prev" data-jcarouselcontrol="true">
+              <span class="icon-stack">
+                <i class="fa fa-chevron-left"></i>
+              </span>
+            </a>
+            <a href="#" class="jcarousel-control-next" data-jcarouselcontrol="true">
+              <span class="icon-stack">
+                <i class="fa fa-chevron-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="jcarousel container" data-jcarousel="true">
+      <div class="jcontainer">
+        <% projects.each do |project| %>
+          <div class="span3">
+            <article class="property-item">
+              <%= link_to image_tag(home_projects_image(project)), project %>
+            </article>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

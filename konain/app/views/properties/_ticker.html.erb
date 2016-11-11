@@ -1,0 +1,47 @@
+<% if @recent_properties.present? %>
+  <div class="TickerNews" id="home-ticker">
+    <div class="ti_wrapper">
+      <div class="ti_slide">
+        <div class="ti_content">
+          <% @recent_properties.each do |property| %>
+            <div class="ti_news">
+              <div class="ti_news_holder">
+                <%= link_to property do %>
+                  <div class="triger-section">
+                    <span><%= category(property) %></span>
+                    <span class="price-span">PKR.<%= render_price(property.price) %></span>
+                    <div class="clearfix"></div>
+                    <p><%= property.location %>
+                    <%= property.city %></p>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% if @ticker_content.present? %>
+  <div class="TickerNews" id="home-ticker">
+    <div class="ti_wrapper">
+      <div class="ti_slide">
+        <div class="ti_content">
+          <% @ticker_content.each do |ticker| %>
+            <div class="ti_news">
+              <div class="ti_news_holder">
+                <div class="triger-section">
+                  <span><%= ticker.title %></span>
+                  <div class="clearfix"></div>
+                  <p><%= ticker.content %></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

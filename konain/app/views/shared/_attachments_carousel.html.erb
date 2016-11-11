@@ -1,0 +1,28 @@
+<div class='connected-carousels-transparent'></div>
+<div class="connected-carousels">
+  <div class="stage">
+    <div class="carousel carousel-stage" data-jcarousel="true">
+      <ul style="left: 0px; top: 0px;">
+        <% attachments.each do |attachment| %>
+          <li class="item">
+            <%= image_tag(attachment.image.url(:show)) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="navigation">
+    <a href="#" class="prev prev-navigation" data-jcarouselcontrol="true">‹</a>
+    <a href="#" class="next next-navigation" data-jcarouselcontrol="true">›</a>
+    <div class="carousel carousel-navigation" data-jcarousel="true">
+      <ul style="left: 0px; top: 0px;">
+        <% attachments.each_with_index do |attachment, index| %>
+          <%= content_tag :li, class: "#{is_active(index)} carousel-thumb-image" do %>
+            <% concat image_tag(attachment.image.url(:thumb), class: "carousel-thumbnail-image") %>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

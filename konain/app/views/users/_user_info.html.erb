@@ -1,0 +1,79 @@
+<div class="row-fluid sellerInfo">
+  <h3  class="f30"><%= display_user_role(user) %></h3>
+  <div class="row-fluid user-listing clearfix userProfileImgSec">
+    <div class="agent-image span4">
+      <div class="agent-image-container">
+        <%= image_tag user_image(user), class: "agent-image-size" %>
+      </div>
+    </div>
+    <div class="listing-info span8">
+      <div class="listing-title">
+        <h1><%= user.name %>
+          <% if user.city.present? %>
+            - <%= user.city %>
+          <% end %>
+        </h1>
+        <% if can_edit?(@user) %>
+          <div class="edit-delete-btns">
+            <%= link_to edit_user_registration_path do %>
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <div class="listing-content">
+        <% if user.address.present? %>
+          <div class="listing-excerpt">
+            <div class="row-fluid emailFaxSec">
+              <div class="textWrappSec">
+                <label>Address: </label>
+                <span>
+                  <%= user.address.titleize %>
+                  <% if user.city.present? %>
+                    , <%= user.city %>
+                  <% end %>
+                </span>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+        <div class="listing-excerpt">
+          <div class="row-fluid emailFaxSec">
+            <div class="pull-left">
+              <label>Email:</label>
+              <span class="emailTxt"><%= user.email %></span>
+            </div>
+            <% if user.fax_code.present? && user.fax_number.present? %>
+              <div class="pull-left">
+                <label>Fax: </label>
+                <span><%= user.fax %></span>
+              </div>
+            <% end %>
+            <div class="clearfix"></div>
+            <% if user.agent_description.present? %>
+              <div class="textWrappSec">
+                <label>Bio: </label>
+                <span class="bio"><%= user.agent_description %></span>
+              </div>
+            <% end %>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+
+      <div class="listing-address">
+        <table>
+          <td class="agent-phone-info">
+            <i class="fa fa-mobile" aria-hidden="true"></i>
+            <span><%= user.home_number %></span>
+          </td>
+          <td class="agent-phone-info">
+            <i class="fa fa-phone" aria-hidden="true"></i>
+              <%= user.mobile_number %>
+          </td>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div id="title-listing" class="container home-feature-listing-links">
+  <h2 class="property-list-title">
+    <%= titleize(@user.first_name) %>'s Properties
+  </h2>
+  <div class="property-list-by sort-title">
+    <% if can_edit?(@user) %>
+      <%= link_to "Uploaded", user_path(add_data_to_params(@user.id, nil, params[:category])), remote: true, id: "uploaded", class: active_filter_tab(params, "show") %>
+      <%= link_to "Approved", user_path(add_data_to_params(@user.id, "approved", params[:category])), remote: true, id: "approved" %>
+      <%= link_to "Pending", user_path(add_data_to_params(@user.id, "pending", params[:category])), remote: true, id: "pending" %>
+      <%= link_to "Favourited", favourite_properties_user_path(add_data_to_params(@user.id, "approved", params[:category], "Property")), remote: true, id: "favourited" %>
+    <% end %>
+
+    <% if @user.agent? %>
+      <%= link_to "Assigned", assigned_properties_user_path(add_data_to_params(@user.id, "approved", params[:category], nil, @user.id)), remote: true, id: "assigned", class: active_filter_tab(params, "assigned_properties") %>
+    <% end %>
+  </div>
+</div>
+
+<div class="property-sort">
+  <div class="sort-title">
+    <span class="sort-by sort-by-text-color">Show: </span>
+    <%= link_to "All", user_path(add_data_to_params(@user.id, params[:state], nil, params[:favourited_type], params[:agent_id])), class: "active", id: "all", remote: true %>
+    <%= link_to "For Rent", user_path(add_data_to_params(@user.id, params[:state], 'Rent', params[:favourited_type], params[:agent_id])), id: "rent", remote: true %>
+    <%= link_to "On Sale", user_path(add_data_to_params(@user.id, params[:state], 'Sale', params[:favourited_type], params[:agent_id])), id: "sale", remote: true %>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+$("#index").html("<%= raw escape_javascript render( partial: 'index', locals: { properties: @properties }) %>");
+<% if params[:property_type].present? %>
+  $("#type_<%= space_to_underscore(params[:property_type]) %>").addClass("active").siblings().removeClass('active');
+<% else %>
+  $("#type_all").addClass("active").siblings().removeClass('active');
+<% end %>
+
+<% if params[:category] == "Rent" %>
+  $("#rent").addClass("active").siblings().removeClass("active");
+<% elsif params[:category] == "Sale" %>
+  $("#sale").addClass("active").siblings().removeClass("active");
+<% else %>
+  $("#all").addClass("active").siblings().removeClass("active");
+<% end %>
+
+var data = <%= raw @array_of_property_fields.to_json %>;
+ModalMap.init(data);

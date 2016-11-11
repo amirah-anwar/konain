@@ -1,0 +1,3 @@
+$("#property-sub-type").html("");
+$("#property-feature").html("");
+$("#property-type").html("<%= raw escape_javascript render(partial: 'property_type', locals: { types: @types }) %>");

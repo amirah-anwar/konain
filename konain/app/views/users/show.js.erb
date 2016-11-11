@@ -1,0 +1,33 @@
+$("#listings-div").html("<%= raw escape_javascript render( partial: 'show', locals: { user_properties: @user_properties, active_category: params[:category] } ) %>");
+<% if params[:action] == "show" %>
+
+  <% if params[:state] == ["approved"] %>
+    <% if params[:favourited_type].present? %>
+      $("#favourited").addClass("active").siblings().removeClass("active");
+    <% elsif params[:agent_id].present? %>
+      $("#assigned").addClass("active").siblings().removeClass("active");
+    <% else %>
+      $("#approved").addClass("active").siblings().removeClass("active");
+    <% end %>
+  <% elsif params[:state] == ["pending"] %>
+    $("#pending").addClass("active").siblings().removeClass("active");
+  <% else %>
+    $("#uploaded").addClass("active").siblings().removeClass("active");
+  <% end %>
+
+<% elsif params[:action] == "assigned_properties" %>
+  $("#assigned").addClass("active").siblings().removeClass("active");
+<% elsif params[:action] == "favourite_properties" %>
+  $("#favourited").addClass("active").siblings().removeClass("active");
+<% end %>
+
+<% if params[:category] == "Rent" %>
+  $("#rent").addClass("active").siblings().removeClass("active");
+<% elsif params[:category] == "Sale" %>
+  $("#sale").addClass("active").siblings().removeClass("active");
+<% else %>
+  $("#all").addClass("active").siblings().removeClass("active");
+<% end %>
+
+var data = <%= raw @array_of_property_fields.to_json %>;
+ModalMap.init(data);

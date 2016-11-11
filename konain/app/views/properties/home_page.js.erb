@@ -1,0 +1,15 @@
+<% if @featured_properties.present? %>
+  $("#home-featured-listings").html("<%= raw escape_javascript render( partial: 'home_featured_listings', locals: { featured_properties: @featured_properties }) %>")
+  <% if params[:property_type].present? %>
+    $("#type_<%= space_to_underscore(params[:property_type]) %>").addClass("active").siblings().removeClass('active')
+  <% else %>
+    $("#type_all").addClass("active").siblings().removeClass('active')
+  <% end %>
+<% else %>
+  $("#home-featured-listings").html("No properties found for the selected property type <%= params[:property_type] %>")
+  <% if params[:property_type].present? %>
+    $("#type_<%= space_to_underscore(params[:property_type]) %>").addClass("active").siblings().removeClass('active')
+  <% else %>
+    $("#type_all").addClass("active").siblings().removeClass('active')
+  <% end %>
+<% end %>

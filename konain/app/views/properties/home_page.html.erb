@@ -1,0 +1,27 @@
+<%= render "home_page_header" %>
+
+<%= render "ticker" %>
+
+<div class="container-full">
+  <div class="content-wrapper clearfix">
+
+    <div id="property_list" class="container">
+      <div id="title-listing" class="container property-page-listing-links">
+        <h2 class='property-list-title home-property-list-title'>Featured Properties</h2>
+        <div class='property-list-by sort-title home-property-list-by'>
+          <%= link_to "All", root_path, remote: true, id: "type_all", class: "active" %>
+          <% @property_types.each do |type| %>
+            <%= link_to type, root_path(property_type: type), remote: true, id: "type_#{space_to_underscore(type)}" %>
+          <% end %>
+        </div>
+      </div>
+      <div id="home-featured-listings">
+        <%= render "home_featured_listings", featured_properties: @featured_properties, property_types: @property_types %>
+      </div>
+    </div>
+
+    <%= render "home_projects_listings", projects: @projects %>
+
+    <%= render "home_team_listings" %>
+  </div>
+</div>

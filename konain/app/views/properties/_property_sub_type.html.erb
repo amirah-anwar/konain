@@ -1,0 +1,11 @@
+<div class="span3">
+  <%= label_tag 'Property Sub-type:', nil, class: 'top-padding' %>
+</div>
+<div class="span9">
+  <% sub_types.each do |sub_type| %>
+    <div class="span3">
+      <%= content_tag(:input, nil, type: "radio", name: "property[property_sub_type]", id: "property_sub_type_#{sub_type}", value: "#{sub_type}", required: true, checked: check_property_sub_type?(sub_type, params)) %>
+      <label for="property_sub_type_<%= sub_type %>"><span></span><%= sub_type %></label>
+    </div>
+  <% end %>
+</div>

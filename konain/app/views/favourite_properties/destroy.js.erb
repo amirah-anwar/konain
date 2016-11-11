@@ -1,0 +1,14 @@
+<% if @user_favourited == 'true' %>
+  $('#favourited_<%= @property.id %>').parents(':eq(1)').fadeOut(function() { $(this).remove(); });
+  url = '/users/<%= current_user.id %>/favourite_properties?favourited_type=Property&state=approved';
+  <% if @category.present? %>
+    url = [url, 'category=<%= @category %>'].join('&');
+  <% end %>
+  $.ajax({
+    type: 'GET',
+    url: url,
+    dataType: 'script',
+  });
+<% else %>
+  $('#favourited_<%= @property.id %>').html('<%= raw escape_javascript(render "favourited", property: @property, user_favourited_active: false) %>');
+<% end %>

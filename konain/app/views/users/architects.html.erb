@@ -1,0 +1,82 @@
+<%= render 'shared/banner', banner_heading: 'Architects Listing', banner_name: 'Architects Listings', heading_tag: :h1 %>
+
+<div class='container'>
+  <div id='main' class='row-fluid agentsListingPage'>
+    <section  id='content' class='span9' role='main'>
+      <div class='agent-sort'>
+        <span class='paginate-info'><%= page_info(@architects, 'architect') %></span>
+        <div class='paginationBtns'>
+          <%= link_to_previous_page @architects, '<i class="fa fa-chevron-left"></i>Back'.html_safe, class: 'paginate-button back-button' %>
+          <%= link_to_next_page @architects, 'Next<i class="fa fa-chevron-right"></i>'.html_safe, class: 'paginate-button next-button' %>
+        </div>
+        <div class='clearfix'></div>
+      </div>
+      <% if @architects.present? %>
+        <% @architects.each do |architect| %>
+          <div class='row-fluid'>
+            <div class='row-fluid agent-listing clearfix'>
+              <div class='agent-image-listing span4'>
+                <div class='agent-image-container'>
+                  <%= link_to image_tag(agents_image(architect), class: 'agent-image-size'), architect %>
+                </div>
+              </div>
+              <div class='listing-info span8'>
+                <div class='listing-title'>
+                  <h2>
+                    <%= link_to titleize(architect.name), architect %>
+                    - <%= architect.city if architect.city.present? %>
+                  </h2>
+                </div>
+                <div class='listing-content'>
+                  <div class='listing-excerpt'>
+                    <p><%= architect.agent_description %></p>
+                  </div>
+                </div>
+
+                <div class='listing-address'>
+                  <table>
+                    <td class='agent-phone-info'>
+                      <i class='fa fa-mobile' aria-hidden='true'></i>
+                      <%= architect.home_number %>
+                    </td>
+                    <td class='agent-phone-info'>
+                      <i class='fa fa-phone' aria-hidden='true'></i>
+                      <%= architect.mobile_number %>
+                    </td>
+                    <td class='agent-phone-info'>
+                      <i class='fa fa-envelope' aria-hidden='true'></i>
+                      <a data-toggle='modal' href='#contact_<%= architect.id %>'>Send Email</a>
+                    </td>
+
+                    <div id='contact_<%= architect.id %>' class='modal hide fade sendMailAgentPopup' tabindex='-1' role='dialog' aria-labelledby='contactAgentLabel' aria-hidden='true'>
+                      <div class='modal-header'>
+                        <button type='button' class='close' data-dismiss='modal' aria-hidden='true'><i class='fa fa-times-circle' aria-hidden='true'></i></button>
+                        <h3>
+                          Send message to Architect <%= architect.name %>
+                        </h3>
+                      </div>
+                      <%= render 'email_form', user: architect %>
+                    </div>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <div class='row-fluid'>
+          <h2>No Architects found</h2>
+        </div>
+      <% end %>
+      <div class='property-pagination'>
+        <ul>
+          <li><%= paginate @architects %></li>
+        </ul>
+      </div>
+    </section>
+    <section id='sidebar' class='span3' role='complementary'>
+      <%= render 'properties/search_form' %>
+      <%= render 'properties/featured_properties', properties: @properties if @properties.present? %>
+    </section>
+  </div>
+</div>

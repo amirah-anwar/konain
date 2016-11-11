@@ -1,0 +1,29 @@
+<div id="title-listing" class="container home-feature-listing-links">
+  <h2 class="property-list-title">Property Listing</h2>
+  <div class="property-list-by sort-title">
+    <%= link_to "All", properties_path(category: params[:category]), remote: true, id: "type_all", class: property_type_active?("All", params[:property_type]) %>
+    <% @property_types.each do |type| %>
+      <%= link_to type, properties_path(property_type: type, category: params[:category]), remote: true, id: "type_#{space_to_underscore(type)}", class: property_type_active?(type, params[:property_type]) %>
+    <% end %>
+  </div>
+</div>
+
+<div id="main" class="row-fluid">
+  <section id="content" class="span9" role="main">
+
+    <div class="property-sort">
+      <div class="sort-title">
+        <span class="sort-by sort-by-text-color">Show: </span>
+        <%= link_to "All", properties_path(category: '', property_type: params[:property_type]), id: "all", remote: true, class: active(params[:category]) %>
+        <%= link_to "For Rent", properties_path(category: 'Rent', property_type: params[:property_type]), id: "rent", remote: true, class: active(params[:category], "Rent") %>
+        <%= link_to "On Sale", properties_path(category: 'Sale', property_type: params[:property_type]), id: "sale", remote: true, class: active(params[:category], "Sale") %>
+      </div>
+    </div>
+
+    <%= render "index_properties_listings", properties: @properties %>
+  </section>
+
+  <section id="sidebar" class="span3" role="complementary">
+    <%= render 'search_form' %>
+  </section>
+</div>

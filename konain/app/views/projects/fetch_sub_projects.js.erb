@@ -1,0 +1,15 @@
+<% if @fetch_type.present? && @fetch_type == 'side_bar' %>
+  <% if @sub_projects.present? %>
+    $('#side_bar_prop_phase_id').html('<%= raw j options_for_select(["Phase"]) %>');
+    $('#side_bar_prop_phase_id').append('<%= j options_for_select(@sub_projects) %>');
+  <% else %>
+    $('#side_bar_prop_phase_id').html('<option>No Phase</option>');
+  <% end %>
+<% else %>
+  <% if @sub_projects.present? %>
+    $('#property_sub_project_id').html('<%= raw j options_for_select(["Phase"]) %>');
+    $('#property_sub_project_id').append('<%= j options_for_select(@sub_projects) %>');
+  <% else %>
+    $('#property_sub_project_id').html('<option>No Phase</option>');
+  <% end %>
+<% end %>

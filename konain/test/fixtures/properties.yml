@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: MyString
+  city: MyString
+  location: MyString
+  title: MyString
+  description: MyText
+  price: 1
+  land_area: 1
+  area_unit: MyString
+  bedroom_count: 1
+  bathroom_count: 1
+  expire_at: 2016-04-21 15:15:27
+  negotiable: false
+
+two:
+  category: MyString
+  city: MyString
+  location: MyString
+  title: MyString
+  description: MyText
+  price: 1
+  land_area: 1
+  area_unit: MyString
+  bedroom_count: 1
+  bathroom_count: 1
+  expire_at: 2016-04-21 15:15:27
+  negotiable: false

@@ -1,0 +1,43 @@
+development:
+  recaptcha:
+    public_key: 6Lc3hh4TAAAAANKCcJAbv2ZTw4tVQ047ODfWgwox
+    private_key: 6Lc3hh4TAAAAAP-yQWPOW_-06IQaMKsW0ryOM--q
+
+  facebook:
+    app_id: '486126704923539'
+    secret_id: '8cc6ea54434acef2a23d233d9cb1223d'
+    profile_link: 'https://www.facebook.com/KonainMarketing'
+
+  googleP:
+    profile_link: 'https://plus.google.com/u/0/107423645473997269793'
+
+  linkedin:
+    profile_link: 'https://pk.linkedin.com/in/konain-marketing-96a79a128'
+
+  twitter:
+    profile_link: 'https://twitter.com/konainmarketing'
+
+  skype:
+    profile_link: 'Konain Marketing'
+
+production:
+  recaptcha:
+    public_key: 6Lc3hh4TAAAAANKCcJAbv2ZTw4tVQ047ODfWgwox
+    private_key: 6Lc3hh4TAAAAAP-yQWPOW_-06IQaMKsW0ryOM--q
+
+  facebook:
+    app_id: '476326949236848'
+    secret_id: 'e3ca4e09cb03b2e58fe6f9c15102be3b'
+    profile_link: 'https://www.facebook.com/KonainMarketing'
+
+  googleP:
+    profile_link: 'https://plus.google.com/u/0/107423645473997269793'
+
+  linkedin:
+    profile_link: 'https://pk.linkedin.com/in/konain-marketing-96a79a128'
+
+  twitter:
+    profile_link: 'https://twitter.com/konainmarketing'
+
+  skype:
+    profile_link: 'Konain Marketing'

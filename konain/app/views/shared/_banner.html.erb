@@ -1,0 +1,10 @@
+<header id="banner">
+  <div id="banner_container" class="banner-image <%= 'banner-image-default' if check_page_banner?(banner_name, Banner::DEFAULT_BANNER_URL) %>" style="<%= backgroung_image_url(banner_name) %>">
+    <div class="banner-back-clr">
+      <div class="container">
+        <%= content_tag( heading_tag ,  banner_heading, class: "banner-title" ) %>
+        <p class="banner-subtitle"></p>
+      </div>
+    </div>
+  </div>
+</header>

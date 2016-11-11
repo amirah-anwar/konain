@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= favicon_link_tag 'favicon.ico' %>
+  <title>Konain Properties</title>
+  <%= Gon::Base.render_data({}) %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+  <div class="container-full">
+    <%= render 'shared/header' %>
+
+    <div class="content-wrapper clearfix">
+      <%= render 'shared/flash_message' %>
+      <%= yield %>
+    </div>
+
+    <%= render 'shared/footer' %>
+  </div>
+</body>
+</html>
+<%= yield :map_initializer %>
+<script type="text/javascript">
+ $(function() {
+   <%= yield :js_init %>
+ });
+</script>

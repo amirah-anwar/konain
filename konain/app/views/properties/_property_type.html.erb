@@ -1,0 +1,13 @@
+<div class="span3 property_type_label">
+  <%= label_tag 'Property Type:', nil, class: 'top-padding' %>
+</div>
+<div class="span9 property-type-options">
+  <% types.each do |type| %>
+    <div class="span3">
+       <%= content_tag(:input, nil, type: "radio", name: "property[property_type]", id: "property_type_#{type}", value: "#{type}", required: true, checked: check_property_type?(type, params)) %>
+      <label for="property_type_<%= type %>">
+        <span></span><%= type %>
+      </label>
+    </div>
+  <% end %>
+</div>

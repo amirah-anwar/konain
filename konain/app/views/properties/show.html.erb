@@ -1,0 +1,123 @@
+<%= render "shared/banner", banner_heading: "Property Details", banner_name: "Property Details", heading_tag: :h2 %>
+
+<div class="clearfix"></div>
+<div class="content-wrapper">
+  <div class="container">
+
+    <div id="main" class="row-fluid">
+      <section  id="content" class="span9" role="main">
+        <div class="clearfix"></div>
+        <article class="type-property">
+
+          <% if @attachments.present? %>
+            <%= render 'shared/attachments_carousel', attachments: @attachments %>
+          <% end %>
+
+          <div id="single_property_meta_wrapper">
+            <div class="single-property-meta clearfix <%= catergory_text_class(@property) %>">
+              <span class="meta-size">
+                <i class="ico-size"></i>
+                <%= "#{@property.land_area} #{area_units_abbreviation(@property.area_unit)}" %>
+              </span>
+
+              <span class="meta-bedroom">
+                <i class="ico-bedroom"></i>
+                <%= @property.bedroom_count %>
+                <span class="meta-hidden"> Bedroom(s)</span>
+              </span>
+
+              <span class="meta-bathroom">
+                <i class="ico-bathroom"></i>
+                <%= @property.bathroom_count %>
+                <span class="meta-hidden"> Bathroom(s)</span>
+              </span>
+
+              <span class="meta-print visible-desktop">
+                <i class="ico-print"></i>
+                <span class="print-hidden">
+                  <a href="javascript:window.print()">Print this page</a>
+                </span>
+              </span>
+
+              <span class="meta-status">
+                <%= category(@property) %>
+              </span>
+            </div>
+          </div>
+
+          <div class="single-property-content-wrapper">
+
+            <header class="single-property-header">
+              <h1 class="single-property-title">
+                <%= @property.full_title %>
+              </h1>
+              <p class="single-property-address">
+                <%= "#{@property.location}, #{@property.city}, Pakistan" %>
+              </p>
+
+              <div class="single-property-price">
+                <h3 class="price-curr">PKR.
+                  <%= number_to_words(@property.price) %>
+                </h3>
+              </div>
+
+              <div class="single-property-address">
+                <h4> Project: </h4>
+                <%= titleize(@property.project.title) %>
+              </div>
+
+              <%  if @property.sub_project.present? %>
+                <div class='single-property-address'>
+                  <h4> Phase: </h4>
+                  <%= titleize(@property.sub_project.title) %>
+              </div>
+              <% end %>
+
+              <% if @property.property_type.present? %>
+                <div class="single-property-address">
+                  <h4> Property Type: </h4>
+                  <%= display_property_type(@property) %>
+                </div >
+              <% end %>
+              <% if @property.property_features.present? %>
+                <%= render 'show_property_features', property: @property %>
+              <% end %>
+
+              <div class="single-property-content">
+                <%= @property.description %>
+                <p>&nbsp;</p>
+              </div>
+            </header>
+
+            <div class="single-property-map">
+              <div id="the_map" class="map-wrap clearfix">
+                <span class="map-label">Property Map</span>
+                <div id="property_map"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <div class="btn-section">
+          <%= link_to 'Back', properties_path %>
+          <% if user_signed_in? && is_owner?(@property) %>
+            <%= link_to 'Edit', edit_property_path(@property) %>
+            <%= link_to 'Delete', @property, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </div>
+      </section>
+
+      <section id="sidebar" class="span3" role="complementary">
+        <%= render 'users/agent_info', agent: @property.agent if @property.agent.present? %>
+        <%= render 'search_form' %>
+      </section>
+
+      <%= render "related_properties", properties: @related_properties %>
+    </div>
+  </div>
+</div>
+<% content_for :map_initializer do %>
+  <script type='text/javascript' src='http://maps.google.com/maps/api/js?sensor=false'></script>
+<% end %>
+<% content_for :js_init do %>
+  PropertyMap.init();
+<% end %>

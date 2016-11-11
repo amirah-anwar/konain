@@ -1,0 +1,855 @@
+@media only screen and (max-width: 575px) and (orientation: portrait) {
+  #social-network a.fb, #social-network a.tw, #social-network a.googleP,
+  #social-network a.linkedin, #social-network a.skype {
+    width: 32px;
+  }
+}
+
+
+@media only screen  and (min-device-width : 320px) and (max-device-width : 480px) {
+
+ .map-canvas {
+    width: inherit;
+  }
+  .facebookBtn {
+    font-size: 16px;
+  }
+  /* .sendMailAgentPopup {
+    .modal-header .close {
+      margin-top: -5px;
+      margin-right: 0
+    }
+    .modal-header h3 {
+      font-size: 14px;
+      line-height: normal;
+    }
+    .modal-body {
+      max-height: 270px;
+      height: 270px;
+      overflow: scroll
+    }
+  } */
+  .listing-meta ul li {
+    text-align: center;
+  }
+  .home-banner-bg-clr #sidebar .widget-title {
+    border-top: 10px solid #fff;
+  }
+  .preLoginAlerts {
+    top: 5px;
+    padding: 0;
+    z-index: 999;
+    font-size: 11px;
+  }
+  .preLoginAlerts.alertHolder {
+    width: 100%;
+    z-index: 999;
+  }
+  #social-network a.fb, #social-network a.tw, #social-network a.googleP,
+  #social-network a.linkedin, #social-network a.skype {
+    width: 25px;
+  }
+
+  #social-network a.fb {
+    margin-left: -50px;
+  }
+
+  #social-network a.new-property {
+    margin-right: 40px !important;
+  }
+
+  #social-network {
+    right: 23%;
+  }
+  .box-content .target {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .logo-containe {
+    .login-btns {
+      ul {
+        margin: 10px 0 0 10px;
+        li {
+          display: block;
+          font-size: 14px;
+          text-align: left;
+          border: none;
+          .fa {
+            font-size: 12px;
+          }
+          a {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+  .project-list-section {
+    .listing-info {
+      .listing-address {
+        .fa-map-marker {
+          float: left;
+        }
+        a.map-link {
+          float: left;
+          padding-top: 4px;
+          padding-left: 0;
+          font-size: 12px;
+          clear: left;
+        }
+        span.seperator {
+          display: none
+        }
+        span.pro-link {
+          font-size: 12px;
+          padding-top: 4px;
+          float: right;
+        }
+      }
+    }
+  }
+   .agentsListingPage {
+    .listing-address {
+      padding-left: 0;
+      padding-right: 0;
+      width: calc(100% - 2px);
+      table td {
+        font-size: 10px;
+
+        .fa {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  #footer .pull-right {
+    float: none;
+    width: 100%;
+    clear: both;
+    ul.footerLinks {
+      li {
+        display: block;
+        border:  none;
+      }
+    }
+  }
+  .userProfileImgSec {
+    .listing-content {
+      .textWrappSec {
+        display: block;
+      }
+      .emailFaxSec {
+        .pull-left {
+          text-align: left;
+          display: block
+        }
+      }
+    }
+  }
+ .jcarousel {
+    height: 525px;
+  }
+  #recent-title-listing.home-page-project-slider {
+    .recent-property-list-title {
+      border-right: 1px solid #d9dfe2;
+    }
+    .recent-property-list-by {
+      position: absolute;
+    }
+    .jcarousel-control {
+      position: initial;
+    }
+  }
+  span.address-text {
+    width: 100%;
+    float: none;
+  }
+  .map-link {
+    display: block;
+    padding-left: 25px;
+  }
+  .home-feature-listing-links {
+    .property-list-title,
+    .property-list-by a:first-child {
+      border: none;
+    }
+  }
+  .noFoundTxt {
+    font-size: 16px;
+    line-height: normal;
+  }
+
+
+}
+
+
+
+/* @media only screen
+    and (max-device-width: 640px),
+    only screen and (max-device-width: 667px),
+    only screen and (max-width: 480px)
+{
+  .sendMailAgentPopup {
+    .modal-header .close {
+      margin-top: -5px;
+      margin-right: 0
+    }
+    .modal-header h3 {
+      font-size: 14px;
+      line-height: normal;
+    }
+    .modal-body {
+      max-height: 70vh;
+      height: 70vh;
+    }
+  }
+
+}
+ */
+
+
+@media only screen and (min-device-width : 480px) and (max-device-width : 560px) {
+  #social-network a.fb, #social-network a.tw, #social-network a.googleP,
+  #social-network a.linkedin, #social-network a.skype {
+    width: 32px;
+  }
+}
+@media only screen and (min-width: 770px) and (max-width: 980px) {
+ .featuredListingBlock .featuredProPriceSec .featuredPricCont {
+    font-size: 12px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .attribute-price {
+    font-size: 17px;
+  }
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 979px) {
+
+  .sendMailAgentPopup .modal-body {
+    max-height: inherit;
+  }
+  .connected-carousels .carousel-stage {
+    height: auto !important
+  }
+
+  select {
+    padding-right: 40px;
+  }
+  .sellerInfo .listing-address {
+    width: calc(100% - 60px);
+  }
+  .property-listing-col-margins.all-property-list .listing-address {
+    padding-right: 70px;
+  }
+  .emailFaxSec span {
+    -webkit-text-fill-color: #555;
+  }
+  .agent-listing {
+    display: flex;
+  }
+  .all-property-list {
+    display: flex;
+  }
+  .project-list-section {
+    display: flex;
+  }
+  .agentsListingPage .agent-listing .listing-info .listing-content {
+    height: auto;
+  }
+  .loginpage-cont {
+    padding: 8% 5%;
+  }
+  .loginpage-cont.signupPage .otherLoginLinks .rightSide span {
+    top: 8px;
+  }
+  .related-property-block .property-images img {
+    height: 145px;
+  }
+  #property_info {
+    padding-bottom: 50px
+  }
+  #sidebar .home-page-feature-pro .content-widget {
+    padding-left: 10px;
+    padding-right: 10px
+  }
+  .search-form-v1 .option-bar.single-field-width {
+    width: 230px;
+  }
+  .search-form-v1 .option-bar.type {
+    width: 230px;
+  }
+  .search-form-v1 .option-bar.location {
+    width: 350px;
+  }
+  #sidebar .agent-widget-email {
+    word-wrap: break-word;
+  }
+  .formLeftMargin {
+    padding-top: 0
+  }
+  .uploadImgCont .uploadImgSec {
+    height: 100px;
+    line-height: 100px;
+    .fields input {
+      height: 136px;
+    }
+    img {
+      height: 100px;
+    }
+  }
+
+  #menu-primary-menu {
+    margin: 0;
+  }
+  #social-network {
+    position: absolute;
+    padding: 0;
+    border: 0;
+    right: 20%;
+    /* background: #555;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e2e8ec;
+    border-top: 1px solid #e2e8ec */
+  }
+  #new_property, .edit_property {
+    .property-type-options {
+      .span3 {
+        width: 48.49171%;
+        &:nth-child(2n+1) {
+          margin-left: 0;
+          clear: both
+        }
+      }
+    }
+    .radio-container {
+      .span3 {
+        width: 48.49171%;
+      }
+    }
+    #property-sub-type .span9 .span3,
+    #property-feature .span9 .span3,
+    .edit_property .span9 .span3 {
+      width: 48.4817%;
+    }
+    #property-feature .span9 .span3:nth-child(2n+1),
+    .edit_property .span9 .span3:nth-child(2n+1) {
+      margin-left: 0;
+      clear: both;
+    }
+  }
+  .box-content {
+    .image-url-div {
+      width: 47%;
+      text-align: center
+    }
+  }
+  .connected-carousels {
+    .stage {
+      width: 100% !important;
+    }
+    .navigation {
+      width: auto !important;
+      .carousel-navigation {
+        padding-left: 50px;
+        padding-right: 50px;
+      }
+      a.prev-navigation {
+        left: 15px;
+        z-index: 9
+      }
+      a.next-navigation {
+        right: 15px;
+        z-index: 9;
+        left: inherit
+      }
+    }
+  }
+  .widget.property-agent {
+     img {
+      height: 120px;
+    }
+    .agent-desc {
+      padding: 0;
+      a {
+      padding: 12px 8px;
+      font-size: 14px;
+      overflow: hidden;
+      display: block;
+      font-weight: 600;
+      margin: 0;
+      }
+    }
+  }
+  #sidebar .property-agent {
+    .content-widget img {
+      height: 90px;
+    }
+    .agent-widget-phone,
+    .agent-widget-email,
+    .agent-widget-name
+     {
+      text-align: center;
+      i {
+        display: block;
+        margin: 0 auto 5px;
+      }
+    }
+  }
+  .contact-us-layout, .about-us-layout {
+    .span9 {
+      width: 62%;
+      .form-wrapper {
+        padding-right: 20px;
+        .contact-form-title {
+          font-size: 22px;
+        }
+      }
+    }
+    .span3 {
+      width: 35%;
+    }
+  }
+  span.address-text {
+    width: 100%;
+    float: none;
+  }
+  .map-link {
+    display: block;
+    padding-left: 25px;
+  }
+  .all-property-list .listing-property-price h4 {
+    font-size: 16px;
+  }
+  .all-property-list {
+    .listing-meta ul {
+      display: block;
+      li {
+        display: block;
+        text-align: center;
+      }
+    }
+    .property-image-container img {
+      height: 160px;
+    }
+    .listing-address {
+      white-space: normal;
+      span.address-text {
+        max-width: inherit;
+      }
+    }
+  }
+
+  .project-list-section {
+    .listing-info {
+      .listing-address {
+        width: calc(100% - 45px);
+        padding-right: 15px;
+        .fa-map-marker {
+          float: left;
+        }
+        a.map-link {
+          float: left;
+          padding-top: 4px;
+          padding-left: 0;
+          font-size: 12px;
+          clear: left;
+        }
+        span.seperator {
+          display: none
+        }
+        span.pro-link {
+          font-size: 12px;
+          float: right;
+          padding-top: 4px;
+        }
+      }
+    }
+  }
+  .agentsListingPage {
+    .agent-image-container {
+      width: auto;
+      height: 125px;
+      margin: 10px
+    }
+    .listing-address {
+      table td {
+        font-size: 12px;
+
+        .fa {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  #footer {
+    .pull-right {
+      float: none;
+      width: 100%;
+      clear: both;
+     text-align: center;
+    }
+    .pull-left {
+      float: none;
+      text-align: center;
+      padding-bottom: 5px;
+    }
+  }
+  .agentsListingPage .listing-address {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: calc(100% - 14px)
+  }
+  #title-listing.home-feature-listing-links,
+  #title-listing.property-page-listing-links {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: auto;
+    background: none;
+    h2 {
+      float: none;
+      position: static;
+      border: none;
+      display: block;
+    }
+    div.property-list-by {
+      position: static;
+      > a {
+        display: inline-block;
+      }
+    }
+  }
+  .banner-title {
+    font-size: 21px;
+  }
+  .team-image {
+    width: 160px;
+    height: 160px;
+    border-width: 5px;
+  }
+  .attr-pricing {
+    padding: 10px;
+    font-size: 18px;
+  }
+  .userProfileImgSec {
+    .agent-image {
+      width: auto;
+      height: auto;
+    }
+    .agent-image-container {
+      width: auto;
+      height: 100px;
+      margin: 5px;
+      padding: 5px;
+    }
+    .emailFaxSec span.emailTxt {
+      margin-right: 0
+    }
+  }
+  #sidebar .widget-title,
+  .featuredListingBlock .featuredProPriceSec .featuredPricCont {
+    font-size: 12px;
+  }
+  form.advance-search-form select {
+    font-size: 11px;
+  }
+
+
+
+}
+
+
+@media screen and (max-width: 767px) {
+  .property-pagination ul {
+    margin: 0;
+  }
+  .preLoginAlerts {
+    font-size: 11px;
+  }
+  .preLoginAlerts.alertHolder {
+    width: 100%
+  }
+  .single-property-header h1 {
+    font-weight: 600;
+    line-height: normal;
+    font-size: 18px;
+  }
+  .modal-body {
+      max-height: 70vh;
+      height: 70vhs;
+      overflow: scroll
+    }
+  .userProfileImgSec .listing-address {
+    padding: 15px 10px;
+    width: calc(100% - 26px);
+
+    .agent-phone-info {
+      font-size: 14px;
+      padding-right: 10px;
+    }
+  }
+  #home-banner .banner-title {
+    font-size: 18px;
+    padding-top: 40px;
+  }
+   .banner-back-clr .banner-title {
+    font-size: 24px;
+    padding-top: 40px;
+  }
+  .home-banner-bg-clr #sidebar .widget-title {
+    border-top: 10px solid #fff;
+  }
+  .listing-meta ul li {
+    text-align: center;
+  }
+  .search-wrapper .search-form-v1 input[type="submit"] {
+    float: right;
+  }
+  .preLoginAlerts.HomePageNotification {
+    width: 100%;
+  }
+
+  .agentsListingPage .agent-listing .listing-info .listing-content {
+    height: auto;
+    max-height: auto;
+  }
+  #menu-primary-menu {
+    margin: 0;
+  }
+  #social-network {
+    background: #555;
+    position: absolute;
+    padding: 0;
+    border: 0;
+    right: 20%;
+  }
+  .uploadImgCont {
+    width: 200px;
+    margin: 20px auto 0;
+  }
+  .connected-carousels {
+    .stage {
+      width: 100% !important;
+    }
+    .navigation {
+      width: auto !important;
+      .carousel-navigation {
+        padding-left: 50px;
+        padding-right: 50px;
+      }
+      a.prev-navigation {
+        left: 15px;
+        z-index: 9
+      }
+      a.next-navigation {
+        right: 15px;
+        z-index: 9;
+        left: inherit
+      }
+    }
+  }
+
+  .contact-page-info address {
+    clear: both;
+  }
+  .project-list-section .listing-address {
+    width: calc(100% - 60px);
+  }
+  .agentsListingPage .agent-image-container {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+  }
+  .agentsListingPage .agent-image-listing {
+    padding: 20px 0;
+  }
+  .home-banner-bg-clr #sidebar.span3 {
+    padding-left: 0
+  }
+  #contact-page-form .controls-row input.span4 {
+    margin-left: 0
+  }
+  #title-listing {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: auto;
+    position: static;
+    background: none;
+  }
+  #title-listing h2 {
+    display: block;
+    float: none;
+    position: static;
+  }
+  .jcarousel .jcontainer {
+    width: 100%;
+  }
+  .userProfileImgSec {
+    display: inherit;
+    .agent-image {
+      width: inherit;
+    }
+    .agent-image-container {
+      width: 150px;
+      height: 150px;
+      margin: 20px auto;
+    }
+    .listing-info {
+      clear: both;
+    }
+  }
+
+
+
+
+}
+
+@media (min-width: 1200px) {
+  .project-list-section .listing-address span.location-text {
+     width: 200px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 200px;
+    display: inline-block;
+  }
+  .project-list-section .listing-address {
+    padding-right: 0;
+    width: calc(100% - 30px);
+    .seperator, .pro-link {
+      margin-left: 15px;
+    }
+  }
+  .sendMailAgentPopup .modal-body {
+    max-height: inherit;
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 980px){
+  .sendMailAgentPopup .modal-body {
+    max-height: inherit;
+  }
+
+  .project-list-section {
+    .listing-info {
+      .listing-address {
+        width: calc(100% - 45px);
+        padding-right: 15px;
+        .fa-map-marker {
+          float: left;
+        }
+        a.map-link {
+          float: left;
+          padding-top: 4px;
+          padding-left: 0;
+          font-size: 12px;
+          clear: left;
+        }
+        span.seperator {
+          display: none
+        }
+        span.pro-link {
+          font-size: 12px;
+          float: right;
+          padding-top: 4px;
+        }
+      }
+    }
+  }
+  .pro-link {
+    float: none;
+    margin-left: 30px;
+    padding-top: 0
+  }
+  .agent-listing {
+    display: flex;
+  }
+  .agentsListingPage .agent-image-container {
+    width: auto;
+    height: 150px;
+  }
+  .search-form-v1 .option-bar.single-field-width {
+    width: 310px;
+  }
+  .search-form-v1 .option-bar.type {
+    width: 310px;
+  }
+  .search-form-v1 .option-bar.location {
+    width: 510px;
+  }
+
+  #social-network a.fb, #social-network a.tw, #social-network a.googleP,
+  #social-network a.linkedin, #social-network a.skype {
+    width: 32px;
+  }
+
+  .edit-delete-btns {
+    top: 10px;
+  }
+  #title-listing.home-feature-listing-links,
+  #title-listing.property-page-listing-links {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: auto;
+    background: none;
+    h2 {
+      float: none;
+      position: static;
+      border: none;
+      display: block;
+    }
+    div.property-list-by {
+      position: static;
+      > a {
+        display: inline-block;
+      }
+    }
+  }
+
+}
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : landscape) {
+  #home-featured-listings .three-columns .property-meta .meta-block {
+    width: 100%;
+    border-bottom: 1px solid #bcbcbc;
+    border-right: 0;
+  }
+   #social-network {
+    position: static;
+    padding: 0;
+    border: 0;
+    right: 0%;
+  }
+  .nav-background .navbar .nav > li ul.dropdown-menu {
+    top: 58px;
+  }
+  .property-listing-col-margins {
+    .listing-meta ul {
+      display: block;
+     li {
+      padding: 10px 0;
+      display: block;
+      border-right: 0;
+      text-align: center;
+      border-bottom: 1px solid #dee5e8;
+      width: 100%;
+      &:last-child {
+        border-left: 0;
+        border-top: 0;
+        border-bottom: 0
+        }
+      }
+    }
+  }
+
+
+
+}

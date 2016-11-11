@@ -1,0 +1,62 @@
+<div class="container buildingImg">
+  <div  class="row-fluid">
+    <div class="span12">
+    <%= devise_error_messages! %>
+      <div class="loginpage-cont">
+        <div class="loginpage-inner">
+
+          <h1>Login</h1>
+          <p>Login with social</p>
+          <div class="row-fluid">
+            <div class="span8 wrapper-center">
+              <%= link_to user_facebook_omniauth_authorize_path, class: 'facebookBtn' do %>
+                <span class="fa fa-facebook"></span>Login with Facebook
+              <% end %>
+            </div>
+          </div>
+          <div class="orSection">
+            <span>
+              <label>OR</label>
+            </span>
+          </div>
+          <p class="loginWithEmail">Login with your email and password</p>
+          <div class="row-fluid">
+            <div class="span8 wrapper-center">
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <div class='field'>
+                  <div class="image-field-holder">
+                    <%= f.email_field :email, required: true, placeholder: 'user@example.com', autocomplete: 'off' %>
+                    <i class="fa fa-user"></i>
+                  </div>
+                </div>
+
+                <div class='field'>
+                  <div class="image-field-holder">
+                    <%= f.password_field :password, autocomplete: 'off', required: true %>
+                    <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                  </div>
+                </div>
+                <div class="userLoginLinks">
+                  <%= render 'devise/shared/links' %>
+                </div>
+
+                <% if devise_mapping.rememberable? -%>
+                  <div class='rememberPassCont'>
+                    <div class="leftSec">
+                      <%= f.check_box :remember_me, id:'option' %>
+                      <label for="option"> <span></span> Remember me </label>
+                    </div>
+                    <div class="rightSec">
+                      <%= f.submit 'Login',:class => 'btnPrimary' %>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                <% end -%>
+              <% end %>
+
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

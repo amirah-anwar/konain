@@ -1,0 +1,10 @@
+<% if features.present? %>
+  $(".property-feature-select").html("<%= escape_javascript options_for_select(features) %>");
+  <% if selected_values.present? %>
+    <% selected_values.each do |selected_value| %>
+      $('.property-feature-select option[value="' + "<%= selected_value %>" + '"]' ).attr("selected", "true");
+    <% end %>
+  <% end %>
+<% else %>
+  $(".property-feature-select").html("<option value=''>No Features</option>");
+<% end %>

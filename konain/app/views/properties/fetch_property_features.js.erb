@@ -1,0 +1,5 @@
+<% if @features.nil? %>
+  $("#property-feature").html("");
+<% else %>
+  $("#property-feature").html("<%= raw escape_javascript render(partial: 'property_features', locals: { features: @features }) %>");
+<% end %>

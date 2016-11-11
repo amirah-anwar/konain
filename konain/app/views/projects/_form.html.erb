@@ -1,0 +1,125 @@
+<div class="container">
+  <div class="row-fluid">
+    <section class="span9">
+      <%= nested_form_for(@project, html: { multipart: true }) do |f| %>
+        <% if @project.errors.any? %>
+
+          <div class="alert alert-error alert-block">
+            <button type="button" class="close" data-dismiss="alert">x</button>
+            <ul>
+              <% @project.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+
+        <% end %>
+        <div class="box-section form-horizontal">
+          <h1 class="title-section">Project Location</h1>
+          <div class="box-content">
+            <p class="red-clr">*Required fields</p>
+
+            <div class="row-fluid control-group">
+              <div class="span3">
+                <%= f.label :country, 'Country:*', class: 'form-label-align' %>
+              </div>
+              <div class="span9">
+                <div class="row-fluid">
+                  <div class="span9">
+                    <span class="selectwrap">
+                      <%= f.select :country, Project::COUNTRIES, { include_blank: 'Select Country' }, required: true %>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row-fluid control-group">
+              <div class="span3">
+                <%= f.label :city, 'City:*', class: 'form-label-align' %>
+              </div>
+              <div class="span9">
+                <div class="row-fluid">
+                  <div class="span9">
+                    <span class="selectwrap">
+                      <%= f.select :city, Project::CITIES, { include_blank: 'Select City' }, required: true %>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row-fluid control-group">
+              <div class="span3">
+                <%= f.label :location, 'Location:*', class: 'form-label-align' %>
+              </div>
+              <div class="span9">
+                <div class="row-fluid">
+                  <div class="span9">
+                    <%= f.text_field :location, required: true, maxlength: 60, placeholder: 'Enter Location' %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="box-section form-horizontal">
+          <h1 class="title-section">Project Detail</h1>
+          <div class="box-content">
+            <div class="row-fluid control-group">
+              <div class="span3">
+                <%= f.label :title, 'Title:*', class: 'form-label-align' %>
+              </div>
+              <div class="span9">
+                <div class="row-fluid">
+                  <div class="span9">
+                    <%= f.text_field :title, required: true, maxlength: 30, placeholder: 'Enter Title' %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row-fluid control-group">
+              <div class="span3">
+                <%= f.label :description, 'Description:', class: 'form-label-align' %>
+              </div>
+              <div class="span9">
+                <div class="row-fluid">
+                  <div class="span9">
+                    <%= f.text_area :description, maxlength: 500, placeholder: 'Enter Description' %>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="box-section">
+          <h1 class="title-section">Add Images</h1>
+          <div class="box-content">
+            <div class='field'>
+              <%= f.fields_for :attachments do |attachment| %>
+                <%= attachment.file_field :image %>
+                <%= image_tag attachment.object.image.url(:thumb) if attachment.object.image.present? %>
+                <%= attachment.link_to_remove 'Remove' %>
+              <% end %>
+            </div>
+
+            <div class="add-image-btn">
+              <%= f.link_to_add :attachments, class: 'btnPrimary' do %>
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>  Add an Image
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class='actions'>
+          <%= link_to 'Back', projects_path, class:'pull-left btnPrimary' %>
+          <%= f.submit 'Upload', class: 'btnPrimary pull-right' %>
+          <div class="clearall"></div>
+        </div>
+      <% end %>
+    </section>
+    <section id="sidebar" class="span3" role="complementary">
+      <%= render 'properties/search_form' %>
+    </section>
+  </div>
+</div>

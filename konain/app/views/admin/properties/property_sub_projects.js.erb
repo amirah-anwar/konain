@@ -1,0 +1,8 @@
+<% if @sub_projects.present? %>
+  $(".admin-property-sub-project").html("<%= j options_for_select(@sub_projects) %>");
+  <% if selected_value.present? %>
+    $('.admin-property-sub-project option[value="' + "<%= selected_value %>" + '"]' ).prop("selected", "true");
+  <% end %>
+<% else %>
+  $(".admin-property-sub-project").html("<option value=''>No SubProjects</option>");
+<% end %>

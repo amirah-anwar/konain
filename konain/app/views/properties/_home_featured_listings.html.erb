@@ -1,0 +1,70 @@
+<div class="row-fluid property-row">
+  <% featured_properties.each_slice(4) do |group| %>
+    <div class="row-fluid">
+      <div class="three-columns">
+        <% group.each do |property| %>
+
+          <div class="span3">
+            <article class="property-item related-property-block">
+              <div class="property-images <%= catergory_class(property) %>">
+                <%= link_to image_tag(property.home_featured_images), property %>
+                <div class="property-status <%= catergory_text_class(property) %>">
+                  <%= category(property) %>
+                </div>
+              </div>
+
+              <div class="property-attribute">
+                <p class="attribute-title featuredPropTitle">
+                  <%= link_to property.title_slug, property %>
+                  <% if user_signed_in? && !is_owner?(property) %>
+                    <div id="favourited_<%= property.id %>" class="favourite-feature">
+                      <%= render 'favourite_properties/favourited', property: property, user_favourited_active: false %>
+                    </div>
+                  <% end %>
+                </p>
+
+                <span class="attribute-city">
+                  <%= property.city %>
+                </span>
+
+                <div class="attribute-price">
+                  <span class="attr-pricing">
+                    <small class="price-curr">PKR.</small>
+                    <%= render_price(property.price) %>
+                  </span>
+                </div>
+              </div>
+
+              <div class="property-meta clearfix">
+                <div class="meta-size meta-block">
+                  <i class="ico-size"></i>
+                  <span class="meta-text">
+                    <%= property.land_area %> <%= area_units_abbreviation(property.area_unit) %>
+                  </span>
+                </div>
+
+                <div class="meta-bedroom meta-block">
+                  <i class="ico-bedroom"></i>
+                  <span class="meta-text">
+                    <%= property.bedroom_count %>
+                  </span>
+                </div>
+
+                <div class="meta-bathroom meta-block">
+                  <i class="ico-bathroom"></i>
+                  <span class="meta-text">
+                    <%= property.bathroom_count %>
+                  </span>
+                </div>
+              </div>
+            </article>
+          </div>
+        <% end %>
+        <% (4 - group.length).times.each do |fake_div| %>
+          <div class="item-empty">
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

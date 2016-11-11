@@ -1,0 +1,193 @@
+<% set_redirect_url %>
+<div class="container">
+  <div class="row-fluid">
+    <section class="span9">
+      <%= nested_form_for(@property, html: { multipart: true }) do |f| %>
+        <% if @property.errors.any? %>
+
+          <div class="alert alert-error alert-block">
+            <button type="button" class="close" data-dismiss="alert">x</button>
+            <ul>
+              <% @property.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+
+        <% end %>
+        <div class="box-section form-horizontal">
+          <h1 class="title-section">Property Type and Location</h1>
+          <div class="box-content">
+            <p class="red-clr">*Required fields</p>
+            <div class="row-fluid control-group">
+              <div class="span3">
+                <%= f.label :category, 'I want to:*', class:'top-padding' %>
+              </div>
+              <div class="span9">
+                <div class="row-fluid radio-container">
+                  <div class="span3">
+                    <%= f.radio_button :category, 'Sale' %>
+                    <label for="property_category_sale"><span></span>Sale</label>
+                  </div>
+                  <div class="span3">
+                    <%= f.radio_button :category, 'Rent' %>
+                    <label for="property_category_rent"><span></span>Rent</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row-fluid control-group">
+              <div class="row-fluid" id="property-type">
+                <%= render(partial: 'property_type', locals: { types: @types }) if @types.present? %>
+              </div>
+            </div>
+
+            <div class="row-fluid control-group">
+              <div class="row-fluid" id="property-sub-type">
+                <%= render(partial: 'property_sub_type', locals: { sub_types: @sub_types }) if @sub_types.present? %>
+              </div>
+            </div>
+
+            <div class="row-fluid control-group">
+              <div class="row-fluid" id="property-feature">
+                <%= render(partial: 'property_features', locals: { features: @features }) if @features.present? %>
+              </div>
+            </div>
+
+            <div class="row-fluid control-group">
+              <div class="span3">
+                <%= f.label :city, 'City:*', class: 'form-label-align' %>
+              </div>
+              <div class="span9">
+                <div class="row-fluid">
+                  <div class="span9">
+                    <span class="selectwrap city-dropdown">
+                      <%= f.select :city, Property::CITIES, { include_blank: 'Select City' }, required: true %>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row-fluid control-group">
+              <div class="span3">
+                <%= f.label :project_id, 'Society:*', class: 'form-label-align' %>
+              </div>
+              <div class="span9">
+                <div class="row-fluid">
+                  <div class="span9">
+                    <span class="selectwrap">
+                      <%= f.select :project_id, selected_projects_list(@city), { include_blank: 'Select Society' }, required: true %>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class='row-fluid control-group'>
+              <div class='span3'>
+                <%= f.label :sub_project_id, 'Phase:*', class: 'form-label-align' %>
+              </div>
+              <div class='span9'>
+                <div class='row-fluid'>
+                  <div class='span9'>
+                    <span class='selectwrap'>
+                      <%= select_property_sub_project(@property, @sub_projects, f) %>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="box-section form-horizontal">
+          <h1 class="title-section">Property Detail</h1>
+          <div class="box-content">
+            <div class="row-fluid control-group">
+              <div class="span3">
+                <%= f.label :title, 'Title:*', class: 'form-label-align' %>
+              </div>
+              <div class="span9">
+                <div class="row-fluid">
+                  <div class="span12">
+                    <%= f.text_field :title, required: true, maxlength: 50, placeholder: 'Enter Title' %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row-fluid control-group">
+              <div class="span3">
+                <%= f.label :description, 'Description:', class: 'form-label-align' %>
+              </div>
+              <div class="span9">
+                <div class="row-fluid">
+
+                  <div class="span12">
+                    <%= f.text_area :description, maxlength: 2000, placeholder: 'Enter Description' %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row-fluid control-group">
+              <div class="span3">
+                <%= f.label :price, 'All inclusive Price (Pkr)', class: 'form-label-align' %>
+              </div>
+              <div class="span9">
+                <div class="row-fluid">
+                  <div class="span12">
+                    <%= f.number_field :price, min: Property::MINIMUM_RANGE, max: Property::MAXIMUM_PRICE_RANGE %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row-fluid control-group">
+              <div class="span3">
+                <%= f.label :land_area, 'Land Area:*', class: 'form-label-align' %>
+              </div>
+              <div class="span3">
+                <%= f.number_field :land_area, min: Property::MINIMUM_RANGE, max: Property::MAXIMUM_RANGE, required: true, placeholder: 'Enter Numeric' %>
+              </div>
+              <div class="span3">
+                <%= f.label :area_unit, 'Unit:*', class: 'form-label-align' %>
+              </div>
+              <div class="span3">
+                <%= f.select :area_unit, Property::UNITS, { include_blank: 'Select Unit' }, required: true %>
+              </div>
+            </div>
+            <div class="row-fluid control-group">
+              <div class="span3">
+                <%= f.label :bedroom_count, 'Bedroom(s):', class: 'form-label-align' %>
+              </div>
+              <div class="span3">
+                <%= f.number_field :bedroom_count, min: Property::MINIMUM_RANGE, max: Property::MAXIMUM_RANGE %>
+              </div>
+              <div class="span3">
+                <%= f.label :bathroom_count, 'Bathroom(s):', class: 'form-label-align' %>
+              </div>
+              <div class="span3">
+                <%= f.number_field :bathroom_count, min: Property::MINIMUM_RANGE, max: Property::MAXIMUM_RANGE %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <%= render "shared/form_image_upload", f: f %>
+
+        <div class='actions'>
+          <%= link_to 'Back', properties_path, class:'pull-left btnPrimary' %>
+          <%= f.submit 'Upload', class: 'btnPrimary pull-right', id: "form-upload" %>
+          <div class="clearall"></div>
+        </div>
+
+      <% end %>
+    </section>
+    <section id="sidebar" class="span3" role="complementary">
+      <%= render 'search_form' %>
+    </section>
+    <% if @properties.present? %>
+      <section id="sidebar" class="span3" role="complementary">
+        <%= render 'featured_properties', properties: @properties %>
+      </section>
+    <% end %>
+  </div>
+</div>

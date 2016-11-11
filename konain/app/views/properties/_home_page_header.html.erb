@@ -1,0 +1,37 @@
+<div id="home-banner">
+  <div id="banner_container" style="<%= backgroung_image_url('Home Page') if banner_image_url('Home Page').present? %>" class="home-page-banner <%= 'home-page-banner-default' if check_page_banner?('Home Page', Banner::DEFAULT_HOME_BANNER_URL) %>">
+    <div class="home-banner-bg-clr">
+      <section class="container">
+        <div class="row-fluid">
+          <section class="span9">
+            <section class="headline-title">
+              <h1 class="banner-title">We bring you New and Old Properties of Pakistan</h1>
+              <!-- <p class="banner-subtitle">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, facilis hic fuga iure molestiae doloremque. Voluptatibus, animi, veritatis.
+              </p> -->
+            </section>
+
+            <section class="property-search">
+              <div class="row-fluid">
+                <section id="map_search" class="span5">
+                  <%= image_tag "map.png" %>
+                </section>
+                <section id="sidebar" class="span7" role="complementary">
+                  <%= render 'home_search_form' %>
+                </section>
+              </div>
+            </section>
+          </section>
+
+          <% if @properties.present? %>
+            <section id="sidebar" class="span3" role="complementary">
+              <div class="home-page-feature-pro">
+                <%= render 'featured_properties', properties: @properties %>
+              </div>
+            </section>
+          <% end %>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

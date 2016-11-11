@@ -1,0 +1,31 @@
+<div class="container buildingImg">
+  <div class="row-fluid">
+    <div class="span12">
+      <div class="loginpage-cont">
+        <div class="loginpage-inner forgotPage">
+          <h1>Resend unlock instructions</h1>
+          <div class="span8 wrapper-center">
+            <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+              <%= devise_error_messages! %>
+
+              <div class='field'>
+                <%= f.label :email %>
+                <%= f.email_field :email %>
+              </div>
+
+              <div class='rememberPassCont'>
+                <div class="leftSec">
+                  <%= render 'devise/shared/links' %>
+                </div>
+                <div class="rightSec">
+                  <%= f.submit 'Resend unlock instructions',:class => 'btnPrimary' %>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

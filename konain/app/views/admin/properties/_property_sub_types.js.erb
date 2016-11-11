@@ -1,0 +1,8 @@
+<% if sub_types.present? %>
+  $("#admin-property-sub-type").html("<%= escape_javascript options_for_select(sub_types) %>");
+  <% if selected_value.present? %>
+    $('#admin-property-sub-type option[value="' + "<%= selected_value %>" + '"]' ).attr("selected", "true");
+  <% end %>
+<% else %>
+  $("#admin-property-sub-type").html("<option value=''>No Subtype</option>");
+<% end %>

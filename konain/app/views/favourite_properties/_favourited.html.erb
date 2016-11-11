@@ -1,0 +1,9 @@
+<% if user_signed_in? && @favourities.include?(property.id) %>
+  <%= link_to favourite_property_path(property, user_favourited_active: user_favourited_active, category: local_assigns[:active_category].present? ? active_category : '' ), method: :delete, remote: true do %>
+    <i class="fa fa-heart active" aria-hidden="true"></i>
+  <% end %>
+<% elsif user_signed_in? %>
+  <%= link_to favourite_properties_path(id: property.id), method: :post, remote: true do %>
+    <i class="fa fa-heart" aria-hidden="true"></i>
+  <% end %>
+<% end %>

@@ -1,0 +1,24 @@
+<div class="search-wrapper">
+  <div id="tabs">
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a data-toggle="tab" href="#tabs-1">
+          House
+        </a>
+      </li>
+      <li>
+        <a data-toggle="tab" href="#tabs-2">
+          Plot
+        </a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div id="tabs-1" class="tab-pane fade in active">
+        <%= render "home_house_search_form" %>
+      </div>
+      <div id="tabs-2" class="tab-pane fade">
+        <%= render "home_plot_search_form" %>
+      </div>
+    </div>
+  </div>
+</div>

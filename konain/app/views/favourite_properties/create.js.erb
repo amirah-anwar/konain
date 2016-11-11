@@ -1,0 +1,5 @@
+<% if @favourited.valid? %>
+  $("#favourited_<%= @property.id %>").html("<%= escape_javascript(render 'favourited', property: @property, user_favourited_active: false) %>");
+<% else %>
+  $('.errors').html('<h4>Error</h4>')
+<% end %>

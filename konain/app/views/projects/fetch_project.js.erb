@@ -1,0 +1,27 @@
+<% if @fetch_type == 'side_bar' %>
+  $('#side_bar_prop_id').html('<%= raw j options_for_select(["Society"]) %>');
+  $('#side_bar_prop_phase_id').html('<%= raw j options_for_select(["Phase"]) %>');
+
+  <% if @projects.present? %>
+    $("#side_bar_prop_id").append("<%= raw j options_for_select(@projects) %>");
+  <% else %>
+    $("#side_bar_prop_id").append("<%= raw j options_for_select(projects_list) %>");
+  <% end %>
+
+  <% if @sub_projects.present? %>
+    $('#side_bar_prop_phase_id').append('<%= raw j options_for_select(@sub_projects) %>');
+  <% end %>
+<% else %>
+  $('#property_project_id').html('<%= raw j options_for_select(["Society"]) %>');
+  $('#property_sub_project_id').html('<%= raw j options_for_select(["Phase"]) %>');
+
+  <% if @projects.present? %>
+    $("#property_project_id").append("<%= raw j options_for_select(@projects) %>");
+  <% else %>
+    $("#property_project_id").append("<%= raw j options_for_select(projects_list) %>");
+  <% end %>
+
+  <% if @sub_projects.present? %>
+    $('#property_sub_project_id').append('<%= raw j options_for_select(@sub_projects) %>');
+  <% end %>
+<% end %>
